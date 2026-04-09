@@ -1,0 +1,223 @@
+<svg width="1400" height="1180" viewBox="0 0 1400 1180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="linePinkBlue" x1="350" y1="260" x2="1030" y2="940" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D63C9C"/>
+      <stop offset="1" stop-color="#5E8EF6"/>
+    </linearGradient>
+    <linearGradient id="lineBluePink" x1="1030" y1="280" x2="330" y2="930" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5E8EF6"/>
+      <stop offset="1" stop-color="#D63C9C"/>
+    </linearGradient>
+    <linearGradient id="nodePink" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#E353A9"/>
+      <stop offset="1" stop-color="#C93B92"/>
+    </linearGradient>
+    <linearGradient id="nodeBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#78ACFF"/>
+      <stop offset="1" stop-color="#4E86F3"/>
+    </linearGradient>
+    <linearGradient id="nodeDark" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#17304B"/>
+      <stop offset="1" stop-color="#102638"/>
+    </linearGradient>
+    <radialGradient id="glowPink" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(442 338) rotate(31) scale(250 180)">
+      <stop stop-color="#F4BEDF"/>
+      <stop offset="1" stop-color="#F4BEDF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1018 844) rotate(-18) scale(270 190)">
+      <stop stop-color="#B9D8FF"/>
+      <stop offset="1" stop-color="#B9D8FF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="0" y="0" width="1400" height="1180" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="14"/>
+      <feGaussianBlur stdDeviation="16"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0627451 0 0 0 0 0.141176 0 0 0 0 0.211765 0 0 0 0.12 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+    <filter id="glow" x="-40" y="-40" width="1480" height="1260" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur_1_1"/>
+    </filter>
+  </defs>
+
+  <ellipse cx="442" cy="338" rx="250" ry="180" fill="url(#glowPink)"/>
+  <ellipse cx="1018" cy="844" rx="270" ry="190" fill="url(#glowBlue)"/>
+
+  <g opacity="0.55">
+    <path d="M250 232H1150" stroke="#DDE8F2" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 18"/>
+    <path d="M250 514H1150" stroke="#DDE8F2" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 18"/>
+    <path d="M250 796H1150" stroke="#DDE8F2" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 18"/>
+    <path d="M296 166V1018" stroke="#E8EFF6" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 18"/>
+    <path d="M632 166V1018" stroke="#E8EFF6" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 18"/>
+    <path d="M968 166V1018" stroke="#E8EFF6" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 18"/>
+  </g>
+
+  <g opacity="0.9">
+    <rect x="214" y="116" width="154" height="42" rx="21" fill="#ECF4FE"/>
+    <text x="291" y="143" text-anchor="middle" fill="#5B88D9" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="0.08em">TRIGGERS</text>
+    <rect x="550" y="116" width="164" height="42" rx="21" fill="#FDEBF6"/>
+    <text x="632" y="143" text-anchor="middle" fill="#C93B92" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="0.08em">DECISIONS</text>
+    <rect x="886" y="116" width="166" height="42" rx="21" fill="#EEF6FF"/>
+    <text x="969" y="143" text-anchor="middle" fill="#5B88D9" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="0.08em">OUTCOMES</text>
+  </g>
+
+  <g filter="url(#glow)" opacity="0.18">
+    <path d="M368 248H566" stroke="url(#linePinkBlue)" stroke-width="16" stroke-linecap="round"/>
+    <path d="M694 248H902" stroke="url(#lineBluePink)" stroke-width="16" stroke-linecap="round"/>
+    <path d="M366 552H566" stroke="url(#linePinkBlue)" stroke-width="16" stroke-linecap="round"/>
+    <path d="M694 552H900" stroke="url(#lineBluePink)" stroke-width="16" stroke-linecap="round"/>
+    <path d="M696 344V454" stroke="url(#linePinkBlue)" stroke-width="16" stroke-linecap="round"/>
+    <path d="M696 648V758" stroke="url(#lineBluePink)" stroke-width="16" stroke-linecap="round"/>
+    <path d="M912 372V730" stroke="url(#lineBluePink)" stroke-width="16" stroke-linecap="round"/>
+  </g>
+
+  <g opacity="0.95">
+    <path d="M368 248H566" stroke="url(#linePinkBlue)" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="368" cy="248" r="9" fill="#FFFFFF" stroke="#D63C9C" stroke-width="4"/>
+    <circle cx="566" cy="248" r="9" fill="#FFFFFF" stroke="#5E8EF6" stroke-width="4"/>
+
+    <path d="M694 248H902" stroke="url(#lineBluePink)" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="694" cy="248" r="9" fill="#FFFFFF" stroke="#5E8EF6" stroke-width="4"/>
+    <circle cx="902" cy="248" r="9" fill="#FFFFFF" stroke="#D63C9C" stroke-width="4"/>
+
+    <path d="M366 552H566" stroke="url(#linePinkBlue)" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="366" cy="552" r="9" fill="#FFFFFF" stroke="#D63C9C" stroke-width="4"/>
+    <circle cx="566" cy="552" r="9" fill="#FFFFFF" stroke="#5E8EF6" stroke-width="4"/>
+
+    <path d="M694 552H900" stroke="url(#lineBluePink)" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="694" cy="552" r="9" fill="#FFFFFF" stroke="#5E8EF6" stroke-width="4"/>
+    <circle cx="900" cy="552" r="9" fill="#FFFFFF" stroke="#D63C9C" stroke-width="4"/>
+
+    <path d="M368 856H566" stroke="url(#linePinkBlue)" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="368" cy="856" r="9" fill="#FFFFFF" stroke="#D63C9C" stroke-width="4"/>
+    <circle cx="566" cy="856" r="9" fill="#FFFFFF" stroke="#5E8EF6" stroke-width="4"/>
+
+    <path d="M694 856H902" stroke="url(#lineBluePink)" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="694" cy="856" r="9" fill="#FFFFFF" stroke="#5E8EF6" stroke-width="4"/>
+    <circle cx="902" cy="856" r="9" fill="#FFFFFF" stroke="#D63C9C" stroke-width="4"/>
+
+    <path d="M694 344V454" stroke="url(#linePinkBlue)" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="694" cy="344" r="9" fill="#FFFFFF" stroke="#D63C9C" stroke-width="4"/>
+    <circle cx="694" cy="454" r="9" fill="#FFFFFF" stroke="#5E8EF6" stroke-width="4"/>
+
+    <path d="M694 648V758" stroke="url(#lineBluePink)" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="694" cy="648" r="9" fill="#FFFFFF" stroke="#5E8EF6" stroke-width="4"/>
+    <circle cx="694" cy="758" r="9" fill="#FFFFFF" stroke="#D63C9C" stroke-width="4"/>
+
+    <path d="M912 372V730" stroke="url(#lineBluePink)" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="912" cy="372" r="9" fill="#FFFFFF" stroke="#5E8EF6" stroke-width="4"/>
+    <circle cx="912" cy="730" r="9" fill="#FFFFFF" stroke="#D63C9C" stroke-width="4"/>
+
+    <path d="M824 552H912V730" stroke="url(#linePinkBlue)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="824" cy="552" r="9" fill="#FFFFFF" stroke="#D63C9C" stroke-width="4"/>
+
+    <path d="M620 856H694V758" stroke="url(#linePinkBlue)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="620" cy="856" r="9" fill="#FFFFFF" stroke="#5E8EF6" stroke-width="4"/>
+
+    <path d="M620 248H694V344" stroke="url(#lineBluePink)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="620" cy="248" r="9" fill="#FFFFFF" stroke="#D63C9C" stroke-width="4"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="204" y="185" width="184" height="126" rx="32" fill="url(#nodeBlue)"/>
+    <circle cx="254" cy="248" r="20" fill="#EAF4FF"/>
+    <path d="M254 236V260M242 248H266" stroke="#5E8EF6" stroke-width="3" stroke-linecap="round"/>
+    <text x="316" y="238" text-anchor="middle" fill="#F8FBFF" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">
+      <tspan x="316" dy="0">New debt</tspan>
+      <tspan x="316" dy="24">balance raised</tspan>
+    </text>
+
+    <rect x="204" y="489" width="184" height="126" rx="32" fill="url(#nodeBlue)"/>
+    <circle cx="254" cy="552" r="20" fill="#EAF4FF"/>
+    <path d="M244 552H264M260 548L264 552L260 556" stroke="#5E8EF6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="316" y="542" text-anchor="middle" fill="#F8FBFF" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">
+      <tspan x="316" dy="0">Missed</tspan>
+      <tspan x="316" dy="24">payment plan</tspan>
+    </text>
+
+    <rect x="204" y="793" width="184" height="126" rx="32" fill="url(#nodeBlue)"/>
+    <circle cx="254" cy="856" r="20" fill="#EAF4FF"/>
+    <path d="M244 846L264 866M264 846L244 866" stroke="#5E8EF6" stroke-width="3" stroke-linecap="round"/>
+    <text x="316" y="846" text-anchor="middle" fill="#F8FBFF" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">
+      <tspan x="316" dy="0">No reply</tspan>
+      <tspan x="316" dy="24">after reminder</tspan>
+    </text>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <path d="M632 176L778 248L632 320L486 248L632 176Z" fill="url(#nodeDark)"/>
+    <path d="M632 176L778 248L632 320L486 248L632 176Z" stroke="#224767" stroke-width="2"/>
+    <circle cx="632" cy="220" r="18" fill="#284D6E"/>
+    <path d="M632 210L642 220L632 230L622 220L632 210Z" fill="#F3D3E7"/>
+    <text x="632" y="262" text-anchor="middle" fill="#F8FBFF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">
+      <tspan x="632" dy="0">In grace?</tspan>
+    </text>
+    <text x="632" y="288" text-anchor="middle" fill="#AAC4E4" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">
+      <tspan x="632" dy="0">Balance under threshold</tspan>
+    </text>
+
+    <path d="M632 480L778 552L632 624L486 552L632 480Z" fill="url(#nodeDark)"/>
+    <path d="M632 480L778 552L632 624L486 552L632 480Z" stroke="#224767" stroke-width="2"/>
+    <circle cx="632" cy="524" r="18" fill="#284D6E"/>
+    <path d="M632 514L642 524L632 534L622 524L632 514Z" fill="#F3D3E7"/>
+    <text x="632" y="566" text-anchor="middle" fill="#F8FBFF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">
+      <tspan x="632" dy="0">Opened email?</tspan>
+    </text>
+    <text x="632" y="592" text-anchor="middle" fill="#AAC4E4" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">
+      <tspan x="632" dy="0">Check after 48 hours</tspan>
+    </text>
+
+    <path d="M632 784L778 856L632 928L486 856L632 784Z" fill="url(#nodeDark)"/>
+    <path d="M632 784L778 856L632 928L486 856L632 784Z" stroke="#224767" stroke-width="2"/>
+    <circle cx="632" cy="828" r="18" fill="#284D6E"/>
+    <path d="M632 818L642 828L632 838L622 828L632 818Z" fill="#F3D3E7"/>
+    <text x="632" y="870" text-anchor="middle" fill="#F8FBFF" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">
+      <tspan x="632" dy="0">Human review?</tspan>
+    </text>
+    <text x="632" y="896" text-anchor="middle" fill="#AAC4E4" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="600">
+      <tspan x="632" dy="0">Based on balance and risk</tspan>
+    </text>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="892" y="185" width="246" height="126" rx="32" fill="url(#nodePink)"/>
+    <circle cx="942" cy="248" r="20" fill="#FCEAF5"/>
+    <path d="M932 248H952M948 244L952 248L948 252" stroke="#D63C9C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="1032" y="238" text-anchor="middle" fill="#FFF8FC" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">
+      <tspan x="1032" dy="0">Send reminder</tspan>
+      <tspan x="1032" dy="24">Email + letter template</tspan>
+    </text>
+
+    <rect x="892" y="489" width="246" height="126" rx="32" fill="url(#nodePink)"/>
+    <circle cx="942" cy="552" r="20" fill="#FCEAF5"/>
+    <path d="M942 540V564M930 552H954" stroke="#D63C9C" stroke-width="3" stroke-linecap="round"/>
+    <text x="1032" y="542" text-anchor="middle" fill="#FFF8FC" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">
+      <tspan x="1032" dy="0">SMS chase</tspan>
+      <tspan x="1032" dy="24">Fallback on no open</tspan>
+    </text>
+
+    <rect x="892" y="793" width="246" height="126" rx="32" fill="url(#nodePink)"/>
+    <circle cx="942" cy="856" r="20" fill="#FCEAF5"/>
+    <path d="M932 846L952 866M952 846L932 866" stroke="#D63C9C" stroke-width="3" stroke-linecap="round"/>
+    <text x="1032" y="846" text-anchor="middle" fill="#FFF8FC" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">
+      <tspan x="1032" dy="0">Escalate case</tspan>
+      <tspan x="1032" dy="24">Queue for specialist team</tspan>
+    </text>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="560" y="386" width="144" height="58" rx="22" fill="#FFF7FB" stroke="#F0D2E4" stroke-width="2"/>
+    <circle cx="590" cy="415" r="12" fill="#FCEAF5"/>
+    <path d="M583 415H597M593 411L597 415L593 419" stroke="#D63C9C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="646" y="421" text-anchor="middle" fill="#C93B92" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Wait 48 hours</text>
+
+    <rect x="822" y="708" width="184" height="58" rx="22" fill="#F3F8FF" stroke="#D7E4F2" stroke-width="2"/>
+    <circle cx="852" cy="737" r="12" fill="#EAF4FF"/>
+    <path d="M845 737L850 742L860 732" stroke="#5E8EF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="920" y="743" text-anchor="middle" fill="#5B88D9" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Route to legal</text>
+  </g>
+</svg>

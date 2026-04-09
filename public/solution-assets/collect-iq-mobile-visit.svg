@@ -1,0 +1,88 @@
+<svg width="1200" height="1400" viewBox="0 0 1200 1400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="120" x2="1030" y2="1290" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5FBFE"/>
+      <stop offset="1" stop-color="#D7EAF1"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(940 310) rotate(90) scale(250 250)">
+      <stop stop-color="#3B88B7" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#3B88B7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(260 1080) rotate(90) scale(320 320)">
+      <stop stop-color="#E2B25E" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#E2B25E" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="screen" x1="600" y1="128" x2="600" y2="1272" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7FBFE"/>
+      <stop offset="1" stop-color="#E7F1F6"/>
+    </linearGradient>
+    <linearGradient id="actionBlue" x1="0" y1="0" x2="150" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3D8CB9"/>
+      <stop offset="1" stop-color="#2C6D94"/>
+    </linearGradient>
+    <linearGradient id="actionGreen" x1="0" y1="0" x2="150" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2EA07E"/>
+      <stop offset="1" stop-color="#1D6A52"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="1400" rx="52" fill="url(#bg)"/>
+  <circle cx="940" cy="310" r="250" fill="url(#glowA)"/>
+  <circle cx="260" cy="1080" r="320" fill="url(#glowB)"/>
+
+  <rect x="320" y="100" width="560" height="1200" rx="80" fill="#091722"/>
+  <rect x="348" y="128" width="504" height="1144" rx="56" fill="url(#screen)"/>
+  <rect x="514" y="154" width="172" height="22" rx="11" fill="#0D2130"/>
+
+  <text x="410" y="232" fill="#2B6D93" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="4">VISIT OUTCOME</text>
+  <text x="410" y="282" fill="#10212D" font-family="Fraunces, Georgia, serif" font-size="52" font-weight="700">Log it in the moment</text>
+  <text x="410" y="320" fill="#516474" font-family="Manrope, Arial, sans-serif" font-size="24">Compact actions for promises, notes and follow-up</text>
+
+  <rect x="392" y="354" width="416" height="168" rx="30" fill="white"/>
+  <text x="420" y="404" fill="#10212D" font-family="Fraunces, Georgia, serif" font-size="40" font-weight="700">T. Wilson</text>
+  <text x="420" y="440" fill="#516474" font-family="Manrope, Arial, sans-serif" font-size="22">Field visit in progress</text>
+  <rect x="420" y="462" width="156" height="30" rx="15" fill="#D7ECF5"/>
+  <text x="459" y="483" fill="#2B6D93" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="800">Balance 890.00</text>
+  <rect x="590" y="462" width="160" height="30" rx="15" fill="#E9F1D2"/>
+  <text x="626" y="483" fill="#5A6D2F" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="800">Plan active</text>
+
+  <rect x="392" y="548" width="200" height="114" rx="26" fill="url(#actionGreen)"/>
+  <text x="432" y="594" fill="white" font-family="Manrope, Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="2">PROMISE</text>
+  <text x="432" y="632" fill="white" font-family="Fraunces, Georgia, serif" font-size="34" font-weight="700">Set follow-up</text>
+
+  <rect x="608" y="548" width="200" height="114" rx="26" fill="url(#actionBlue)"/>
+  <text x="648" y="594" fill="white" font-family="Manrope, Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="2">PAYMENT</text>
+  <text x="648" y="632" fill="white" font-family="Fraunces, Georgia, serif" font-size="34" font-weight="700">Take outcome</text>
+
+  <rect x="392" y="690" width="416" height="278" rx="30" fill="white"/>
+  <text x="420" y="738" fill="#2B6D93" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="2">QUICK FORM</text>
+  <rect x="420" y="770" width="360" height="56" rx="20" fill="#EEF5F8"/>
+  <text x="446" y="806" fill="#173245" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="700">Promise to pay selected</text>
+  <rect x="420" y="848" width="360" height="18" rx="9" fill="#D4E3EB"/>
+  <rect x="420" y="882" width="336" height="18" rx="9" fill="#E0EBF1"/>
+  <rect x="420" y="916" width="260" height="18" rx="9" fill="#D4E3EB"/>
+  <rect x="420" y="944" width="138" height="16" rx="8" fill="#D7ECF5"/>
+  <rect x="574" y="944" width="160" height="16" rx="8" fill="#E9F1D2"/>
+
+  <rect x="392" y="996" width="416" height="96" rx="28" fill="#0E2535"/>
+  <text x="430" y="1050" fill="white" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="700">Next step triggered for office team</text>
+
+  <rect x="392" y="1118" width="416" height="110" rx="28" fill="white"/>
+  <circle cx="448" cy="1173" r="18" fill="#D7ECF5"/>
+  <text x="484" y="1166" fill="#10212D" font-family="Fraunces, Georgia, serif" font-size="30" font-weight="700">Template ready</text>
+  <text x="484" y="1196" fill="#516474" font-family="Manrope, Arial, sans-serif" font-size="21">Email or SMS can be sent without leaving the case.</text>
+
+  <g opacity="0.98">
+    <rect x="122" y="214" width="182" height="152" rx="28" fill="white"/>
+    <text x="156" y="262" fill="#2B6D93" font-family="Manrope, Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="2">SHORT FORM</text>
+    <text x="156" y="308" fill="#10212D" font-family="Fraunces, Georgia, serif" font-size="32" font-weight="700">Thumb-first</text>
+    <text x="156" y="338" fill="#516474" font-family="Manrope, Arial, sans-serif" font-size="20">Less scrolling. Clear choices.</text>
+  </g>
+
+  <g opacity="0.98">
+    <rect x="862" y="980" width="214" height="170" rx="30" fill="white"/>
+    <text x="896" y="1030" fill="#2B6D93" font-family="Manrope, Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="2">FOLLOW-UP</text>
+    <text x="896" y="1076" fill="#10212D" font-family="Fraunces, Georgia, serif" font-size="34" font-weight="700">Captured once</text>
+    <text x="896" y="1116" fill="#516474" font-family="Manrope, Arial, sans-serif" font-size="21">No extra desktop re-entry after the visit.</text>
+  </g>
+</svg>

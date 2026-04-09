@@ -1,0 +1,98 @@
+<svg width="1200" height="1400" viewBox="0 0 1200 1400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="150" y1="90" x2="980" y2="1320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EFF8FD"/>
+      <stop offset="1" stop-color="#D5E8F0"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(920 240) rotate(90) scale(280 280)">
+      <stop stop-color="#5BC5DB" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#5BC5DB" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(230 1160) rotate(90) scale(300 300)">
+      <stop stop-color="#E4BE73" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#E4BE73" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="screen" x1="600" y1="118" x2="600" y2="1282" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7FBFE"/>
+      <stop offset="1" stop-color="#E7F2F7"/>
+    </linearGradient>
+    <linearGradient id="chipBlue" x1="0" y1="0" x2="160" y2="70" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B88B7"/>
+      <stop offset="1" stop-color="#2D6F96"/>
+    </linearGradient>
+    <linearGradient id="chipGreen" x1="0" y1="0" x2="160" y2="70" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2E9D7A"/>
+      <stop offset="1" stop-color="#1F6E55"/>
+    </linearGradient>
+    <linearGradient id="chipAmber" x1="0" y1="0" x2="160" y2="70" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E1B55E"/>
+      <stop offset="1" stop-color="#C08F32"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="1400" rx="52" fill="url(#bg)"/>
+  <circle cx="920" cy="240" r="280" fill="url(#glowA)"/>
+  <circle cx="230" cy="1160" r="300" fill="url(#glowB)"/>
+
+  <g opacity="0.82">
+    <rect x="120" y="142" width="220" height="120" rx="28" fill="white"/>
+    <text x="156" y="192" fill="#2B6D93" font-family="Manrope, Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="4">MOBILE READY</text>
+    <text x="156" y="232" fill="#173245" font-family="Manrope, Arial, sans-serif" font-size="38" font-weight="700">Next action first</text>
+  </g>
+
+  <rect x="320" y="90" width="560" height="1220" rx="80" fill="#091722"/>
+  <rect x="348" y="118" width="504" height="1164" rx="56" fill="url(#screen)"/>
+  <rect x="514" y="144" width="172" height="22" rx="11" fill="#0D2130"/>
+
+  <text x="410" y="218" fill="#2B6D93" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="4">COLLECT IQ</text>
+  <text x="410" y="266" fill="#10212D" font-family="Fraunces, Georgia, serif" font-size="54" font-weight="700">Today's queue</text>
+  <text x="410" y="304" fill="#516474" font-family="Manrope, Arial, sans-serif" font-size="24">Field cases prioritised for mobile follow-up</text>
+
+  <rect x="392" y="336" width="416" height="78" rx="24" fill="white"/>
+  <circle cx="440" cy="375" r="18" fill="#CFE5EF"/>
+  <rect x="470" y="360" width="186" height="12" rx="6" fill="#C7DCE6"/>
+  <rect x="470" y="382" width="136" height="12" rx="6" fill="#D9E8EF"/>
+  <rect x="674" y="352" width="104" height="30" rx="15" fill="url(#chipBlue)"/>
+  <text x="701" y="373" fill="white" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="800">Search</text>
+
+  <rect x="392" y="446" width="416" height="244" rx="30" fill="white"/>
+  <rect x="420" y="472" width="112" height="34" rx="17" fill="#D7ECF5"/>
+  <text x="450" y="494" fill="#2B6D93" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="800">Visit</text>
+  <text x="420" y="554" fill="#10212D" font-family="Fraunces, Georgia, serif" font-size="40" font-weight="700">R. Gomez</text>
+  <text x="420" y="592" fill="#516474" font-family="Manrope, Arial, sans-serif" font-size="22">Balance due 2,460.00</text>
+  <rect x="420" y="624" width="172" height="56" rx="20" fill="#EAF4F8"/>
+  <text x="452" y="659" fill="#173245" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="700">Last contact 3d</text>
+  <rect x="610" y="624" width="170" height="56" rx="20" fill="#EEF3D7"/>
+  <text x="650" y="659" fill="#506327" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="700">Promise active</text>
+
+  <rect x="392" y="718" width="202" height="144" rx="28" fill="white"/>
+  <rect x="616" y="718" width="192" height="144" rx="28" fill="white"/>
+  <text x="422" y="766" fill="#2B6D93" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="2">NEXT STEP</text>
+  <text x="422" y="814" fill="#10212D" font-family="Fraunces, Georgia, serif" font-size="32" font-weight="700">Record visit</text>
+  <text x="422" y="842" fill="#516474" font-family="Manrope, Arial, sans-serif" font-size="20">Tap to update outcome</text>
+  <text x="646" y="766" fill="#2B6D93" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="2">COMMS</text>
+  <text x="646" y="814" fill="#10212D" font-family="Fraunces, Georgia, serif" font-size="32" font-weight="700">Send reminder</text>
+  <text x="646" y="842" fill="#516474" font-family="Manrope, Arial, sans-serif" font-size="20">Email or SMS template</text>
+
+  <rect x="392" y="890" width="416" height="258" rx="30" fill="white"/>
+  <text x="420" y="938" fill="#2B6D93" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="2">STATUS UPDATE</text>
+  <rect x="420" y="970" width="128" height="42" rx="21" fill="url(#chipGreen)"/>
+  <text x="456" y="998" fill="white" font-family="Manrope, Arial, sans-serif" font-size="20" font-weight="800">Paid</text>
+  <rect x="562" y="970" width="148" height="42" rx="21" fill="url(#chipAmber)"/>
+  <text x="590" y="998" fill="white" font-family="Manrope, Arial, sans-serif" font-size="20" font-weight="800">Follow-up</text>
+  <rect x="420" y="1038" width="360" height="18" rx="9" fill="#D5E5ED"/>
+  <rect x="420" y="1072" width="334" height="18" rx="9" fill="#E1EDF2"/>
+  <rect x="420" y="1106" width="256" height="18" rx="9" fill="#D5E5ED"/>
+
+  <rect x="392" y="1174" width="416" height="74" rx="28" fill="#0F2535"/>
+  <circle cx="470" cy="1211" r="10" fill="white"/>
+  <circle cx="600" cy="1211" r="10" fill="#8BB9D3"/>
+  <circle cx="730" cy="1211" r="10" fill="white"/>
+
+  <g opacity="0.96">
+    <rect x="820" y="992" width="230" height="160" rx="30" fill="white"/>
+    <text x="858" y="1040" fill="#2B6D93" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="800" letter-spacing="2">SUPERVISOR</text>
+    <text x="858" y="1086" fill="#10212D" font-family="Fraunces, Georgia, serif" font-size="34" font-weight="700">Queue synced</text>
+    <text x="858" y="1122" fill="#516474" font-family="Manrope, Arial, sans-serif" font-size="21">Notes and outcomes appear as soon as they are saved.</text>
+  </g>
+</svg>

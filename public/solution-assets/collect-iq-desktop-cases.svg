@@ -1,0 +1,67 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="34" fill="#EEF1F4"/>
+  <rect x="58" y="48" width="1084" height="664" rx="26" fill="#FFFFFF"/>
+
+  <rect x="92" y="86" width="1016" height="306" rx="18" fill="#FFFFFF" stroke="#E1E6EA" stroke-width="2"/>
+  <text x="124" y="136" fill="#11171D" font-family="Manrope, Arial, sans-serif" font-size="34" font-weight="800">Case Weekly Data</text>
+  <path d="M1058 125L1070 113L1082 125" stroke="#C82C8A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="122" y="184" width="956" height="168" fill="white" stroke="#E1E6EA"/>
+  <rect x="122" y="184" width="956" height="46" fill="#F4F5F7"/>
+  <g stroke="#E1E6EA">
+    <line x1="364" y1="184" x2="364" y2="352"/>
+    <line x1="508" y1="184" x2="508" y2="352"/>
+    <line x1="652" y1="184" x2="652" y2="352"/>
+    <line x1="796" y1="184" x2="796" y2="352"/>
+    <line x1="940" y1="184" x2="940" y2="352"/>
+    <line x1="122" y1="230" x2="1078" y2="230"/>
+    <line x1="122" y1="272" x2="1078" y2="272"/>
+    <line x1="122" y1="314" x2="1078" y2="314"/>
+  </g>
+  <g fill="#4C5963" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="700">
+    <text x="144" y="214">Week No.</text>
+    <text x="386" y="214">Week 1</text>
+    <text x="530" y="214">Week 2</text>
+    <text x="674" y="214">Week 3</text>
+    <text x="818" y="214">Week 4</text>
+    <text x="962" y="214">Week 5</text>
+  </g>
+  <g fill="#2A333A" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="600">
+    <text x="144" y="258">New Cases</text>
+    <text x="144" y="300">Closed Cases</text>
+    <text x="144" y="342">Active Cases</text>
+    <text x="403" y="258">0</text>
+    <text x="547" y="258">0</text>
+    <text x="691" y="258">0</text>
+    <text x="835" y="258">0</text>
+    <text x="979" y="258">0</text>
+    <text x="403" y="300">0</text>
+    <text x="547" y="300">0</text>
+    <text x="691" y="300">0</text>
+    <text x="835" y="300">0</text>
+    <text x="979" y="300">0</text>
+    <text x="403" y="342">0</text>
+    <text x="547" y="342">0</text>
+    <text x="691" y="342">0</text>
+    <text x="835" y="342">0</text>
+    <text x="979" y="342">0</text>
+  </g>
+
+  <rect x="92" y="444" width="1016" height="72" rx="16" fill="#FFFFFF" stroke="#E1E6EA" stroke-width="2"/>
+  <circle cx="1038" cy="480" r="8" fill="#C82C8A"/>
+  <path d="M1064 472L1078 472" stroke="#C82C8A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M1100 468L1116 484L1100 500" stroke="#C82C8A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="92" y="540" width="1016" height="132" rx="18" fill="#FFFFFF" stroke="#E1E6EA" stroke-width="2"/>
+  <text x="124" y="590" fill="#11171D" font-family="Manrope, Arial, sans-serif" font-size="34" font-weight="800">Total amount outstanding</text>
+  <path d="M1058 579L1070 567L1082 579" stroke="#C82C8A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="124" y="654" fill="#11171D" font-family="Manrope, Arial, sans-serif" font-size="62" font-weight="800">£434,223.72</text>
+  <g fill="#C82C8A">
+    <rect x="760" y="616" width="16" height="74"/>
+    <rect x="790" y="650" width="16" height="40"/>
+    <rect x="820" y="626" width="16" height="64"/>
+    <rect x="850" y="638" width="16" height="52"/>
+    <rect x="880" y="620" width="16" height="70"/>
+    <rect x="756" y="692" width="156" height="8"/>
+  </g>
+</svg>
