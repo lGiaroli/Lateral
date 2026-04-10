@@ -149,6 +149,95 @@ const heroBarSeries = [
   },
 ];
 
+const reportingTrendLabels = ['Week 6', 'Week 7', 'Week 8', 'Week 9', 'Week 10', 'Week 11', 'Week 12'];
+
+const reportingTrendSeries = [
+  {
+    name: 'Recovered',
+    color: '#4a7fda',
+    values: [9000, 18000, 12000, 26000, 22000, 28000, 24000],
+  },
+  {
+    name: 'Plans kept',
+    color: '#8ea85a',
+    values: [7000, 11000, 9000, 14000, 16000, 15000, 17000],
+  },
+  {
+    name: 'Broken plans',
+    color: '#a17bc3',
+    values: [4000, 7000, 6000, 8000, 11000, 9000, 10000],
+  },
+];
+
+const reportingBarLabels = ['29 Jan', '5 Feb', '12 Feb', '19 Feb', '26 Feb', '5 Mar', '12 Mar', '19 Mar'];
+
+const reportingBarSeries = [
+  {
+    name: 'Due',
+    color: '#dbe3ea',
+    values: [42000, 56000, 61000, 73000, 69000, 92000, 88000, 64000],
+  },
+  {
+    name: 'Paid',
+    color: '#eef4f8',
+    values: [26000, 31000, 44000, 59000, 51000, 67000, 56000, 41000],
+  },
+  {
+    name: 'Unpaid',
+    color: '#eda84d',
+    values: [14000, 18000, 16000, 23000, 19000, 25000, 22000, 17000],
+  },
+];
+
+const reportingStats = [
+  {
+    label: 'Collected this week',
+    value: 'GBP 327k',
+    meta: '+12.4% vs prior week',
+    accent: 'is-blue',
+  },
+  {
+    label: 'Plans kept',
+    value: '81%',
+    meta: '1,248 promises met',
+    accent: 'is-rose',
+  },
+  {
+    label: 'Broken arrangements',
+    value: '64',
+    meta: '22 escalated today',
+    accent: 'is-amber',
+  },
+];
+
+const reportingSidebarCards = [
+  {
+    title: 'Payments recovered',
+    value: 'GBP 1.18m',
+    meta: 'Month to date',
+    accent: 'is-blue',
+  },
+  {
+    title: 'Client SLA',
+    value: '98.2%',
+    meta: 'On-track reporting packs',
+    accent: 'is-green',
+  },
+];
+
+const reportingAuditItems = [
+  'Client pack generated for Shrewsbury College',
+  'Arrangement failure threshold updated by ops team',
+  'Month-end export shared with finance',
+];
+
+const reportingAlerts = [
+  { label: 'Ready for payout', value: '119' },
+  { label: 'IDF invoicing required', value: '44' },
+  { label: 'Broken arrangements', value: '56' },
+  { label: 'Cases over 300 days', value: '101' },
+];
+
 function formatCompactMoney(value) {
   if (value === 0) {
     return '£0';
@@ -502,6 +591,181 @@ function PlatformHeroBarChartV2() {
   );
 }
 
+function PlatformReportingTrendChart() {
+  const width = 540;
+  const height = 150;
+  const maxValue = 30000;
+  const padding = {
+    top: 10,
+    right: 16,
+    bottom: 24,
+    left: 44,
+  };
+  const plotWidth = width - padding.left - padding.right;
+  const plotHeight = height - padding.top - padding.bottom;
+  const xStep = plotWidth / (reportingTrendLabels.length - 1);
+  const yTicks = [0, 10000, 20000, 30000];
+
+  return (
+    <svg
+      className="platform-v2-hero-chart-svg"
+      viewBox={`0 0 ${width} ${height}`}
+      role="img"
+      aria-label="Collections reporting trend chart"
+      preserveAspectRatio="none"
+    >
+      {yTicks.map((tick) => {
+        const y = padding.top + plotHeight - (tick / maxValue) * plotHeight;
+        return (
+          <g key={tick}>
+            <line className="grid-line" x1={padding.left} y1={y} x2={width - padding.right} y2={y} />
+            <text className="axis-label axis-label-y" x="4" y={Math.max(12, y - 4)}>
+              {formatCompactMoneyV2(tick)}
+            </text>
+          </g>
+        );
+      })}
+
+      {reportingTrendLabels.map((label, index) => {
+        const x = padding.left + index * xStep;
+        return (
+          <g key={label}>
+            <line
+              className="grid-line is-vertical"
+              x1={x}
+              y1={padding.top}
+              x2={x}
+              y2={height - padding.bottom}
+            />
+            <text className="axis-label axis-label-x" x={x} y={height - 6} textAnchor="middle">
+              {label}
+            </text>
+          </g>
+        );
+      })}
+
+      {reportingTrendSeries.map((series) => {
+        const points = buildLineChartPointsV2(
+          series.values,
+          plotWidth,
+          plotHeight,
+          maxValue,
+          padding.left,
+          padding.top,
+        );
+        const pointString = points.map((point) => `${point.x},${point.y}`).join(' ');
+
+        return (
+          <g key={series.name}>
+            <polyline
+              className="series-line"
+              points={pointString}
+              stroke={series.color}
+              strokeWidth="3"
+              fill="none"
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              vectorEffect="non-scaling-stroke"
+            />
+            {points.map((point, index) => (
+              <circle
+                className="series-point"
+                key={`${series.name}-${index}`}
+                cx={point.x}
+                cy={point.y}
+                r="3.2"
+                fill={series.color}
+                vectorEffect="non-scaling-stroke"
+              />
+            ))}
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+function PlatformReportingArrangementChart() {
+  const width = 620;
+  const height = 230;
+  const maxValue = 100000;
+  const padding = {
+    top: 12,
+    right: 18,
+    bottom: 24,
+    left: 50,
+  };
+  const plotWidth = width - padding.left - padding.right;
+  const plotHeight = height - padding.top - padding.bottom;
+  const yTicks = [0, 25000, 50000, 75000, 100000];
+  const groupWidth = plotWidth / reportingBarLabels.length;
+  const barWidth = 14;
+
+  return (
+    <svg
+      className="platform-v2-hero-chart-svg"
+      viewBox={`0 0 ${width} ${height}`}
+      role="img"
+      aria-label="Payments on arrangement reporting chart"
+      preserveAspectRatio="none"
+    >
+      {yTicks.map((tick) => {
+        const y = padding.top + plotHeight - (tick / maxValue) * plotHeight;
+        return (
+          <g key={tick}>
+            <line className="grid-line" x1={padding.left} y1={y} x2={width - padding.right} y2={y} />
+            <text className="axis-label axis-label-y" x="4" y={Math.max(12, y - 4)}>
+              {formatCompactMoneyV2(tick)}
+            </text>
+          </g>
+        );
+      })}
+
+      {reportingBarLabels.map((label, index) => {
+        const x = padding.left + index * groupWidth + groupWidth / 2;
+        return (
+          <g key={label}>
+            <line
+              className="grid-line is-vertical"
+              x1={x}
+              y1={padding.top}
+              x2={x}
+              y2={height - padding.bottom}
+            />
+            <text className="axis-label axis-label-x" x={x} y={height - 6} textAnchor="middle">
+              {label}
+            </text>
+          </g>
+        );
+      })}
+
+      {reportingBarLabels.map((label, index) => {
+        const center = padding.left + index * groupWidth + groupWidth / 2;
+
+        return reportingBarSeries.map((series, seriesIndex) => {
+          const value = series.values[index];
+          const barHeight = (value / maxValue) * plotHeight;
+          const x = center + (seriesIndex - 1) * (barWidth + 4) - barWidth / 2;
+          const y = padding.top + plotHeight - barHeight;
+
+          return (
+            <rect
+              key={`${label}-${series.name}`}
+              x={x}
+              y={y}
+              width={barWidth}
+              height={barHeight}
+              rx="4"
+              fill={series.color}
+              className={`series-bar ${series.name.toLowerCase()}`}
+            />
+          );
+        });
+      })}
+    </svg>
+  );
+}
+
 const caseManagementPoints = [
   'Centralised case files, timelines and customer context',
   'Role-based access for internal teams, external clients and stakeholders',
@@ -537,6 +801,9 @@ const platformStories = [
       'Design credit control steps, collections journeys, legal actions and escalation logic in one controlled environment, then apply it consistently at scale.',
     points: workflowPoints,
     visualType: 'workflow',
+    responsiveImageSrc: '/company-assets/workflow.png',
+    responsiveImageAlt: 'Lateral workflow automation diagram',
+    responsiveAspectRatio: '1.18 / 1',
     shotClassName: 'is-workflow-shot',
     storyClassName: 'is-workflow-story',
   },
@@ -559,11 +826,10 @@ const platformStories = [
     description:
       'Move from static exports and fragmented reporting to live dashboards, client-ready views and deeper auditability across every workflow.',
     points: reportingPoints,
-    imageSrc: '/company-assets/reporting.png',
-    imageAlt: 'Lateral reporting dashboard with charts and system alerts',
-    cover: true,
-    aspectRatio: '1.34 / 1',
-    objectPosition: 'center 12%',
+    visualType: 'reporting',
+    responsiveImageSrc: '/company-assets/reporting.png',
+    responsiveImageAlt: 'Lateral reporting dashboard with charts and system alerts',
+    responsiveAspectRatio: '1000 / 582',
   },
 ];
 
@@ -694,19 +960,35 @@ function PlatformTiltMedia({
   objectPosition,
   shotClassName = '',
 }) {
+  const isPhotoShot = shotClassName.includes('photo');
+  const resolvedShotClassName = `${shotClassName}${isPhotoShot ? '' : `${shotClassName ? ' ' : ''}is-screenshot-shot`}`;
+
   return (
     <PlatformTiltSurface
       interactive={interactive}
       cover={cover}
       aspectRatio={aspectRatio}
-      shotClassName={shotClassName}
+      shotClassName={resolvedShotClassName}
     >
-      <img
-        src={src}
-        alt={alt}
-        loading={loading}
-        style={objectPosition ? { objectPosition } : undefined}
-      />
+      {isPhotoShot ? (
+        <img
+          className="platform-v2-shot-image"
+          src={src}
+          alt={alt}
+          loading={loading}
+          style={objectPosition ? { objectPosition } : undefined}
+        />
+      ) : (
+        <div className="platform-v2-shot-image-shell is-product-image-shell">
+          <img
+            className="platform-v2-shot-image is-product-image"
+            src={src}
+            alt={alt}
+            loading={loading}
+            style={objectPosition ? { objectPosition } : undefined}
+          />
+        </div>
+      )}
     </PlatformTiltSurface>
   );
 }
@@ -878,9 +1160,11 @@ function PlatformHeroVisual() {
         <div className="platform-v2-hero-screenshot-window">
           <div className="platform-v2-hero-screenshot-topbar">
             <div className="platform-v2-hero-screenshot-brand" aria-label="lateral">
-              <span className="platform-v2-hero-screenshot-brand-bar" />
-              <span className="platform-v2-hero-screenshot-brand-chevron" />
-              <span className="platform-v2-hero-screenshot-brand-chevron is-trailing" />
+              <img
+                className="platform-v2-hero-screenshot-brand-image"
+                src="/platform-assets/lateral-nav-logo-arrows-cropped.png"
+                alt=""
+              />
             </div>
             <div className="platform-v2-hero-screenshot-nav">
               <span>Home</span>
@@ -963,6 +1247,145 @@ function PlatformHeroVisual() {
                 <div className="platform-v2-hero-alert-pill"><span>Allocation over 5 days</span><b>29</b></div>
               </div>
             </section>
+          </div>
+        </div>
+      </div>
+    </PlatformTiltSurface>
+  );
+}
+
+function PlatformReportingVisual() {
+  return (
+    <PlatformTiltSurface shotClassName="is-reporting-dashboard-shot" aspectRatio="1.34 / 1">
+      <div className="platform-v2-reporting-visual" aria-hidden="true">
+        <span className="platform-v2-reporting-glow is-left" />
+        <span className="platform-v2-reporting-glow is-right" />
+
+        <div className="platform-v2-reporting-device">
+          <div className="platform-v2-reporting-screen">
+            <div className="platform-v2-reporting-topbar">
+              <div className="platform-v2-hero-screenshot-brand" aria-label="lateral">
+                <img
+                  className="platform-v2-hero-screenshot-brand-image"
+                  src="/platform-assets/lateral-nav-logo-arrows-cropped.png"
+                  alt=""
+                />
+              </div>
+              <div className="platform-v2-reporting-nav">
+                <span>Home</span>
+                <span>Create Case</span>
+                <span>General</span>
+                <span>Management</span>
+                <span>Settings</span>
+                <span>Addons</span>
+              </div>
+            </div>
+
+            <div className="platform-v2-reporting-body">
+              <div className="platform-v2-reporting-toolbar">
+                <div className="platform-v2-reporting-toolbar-title">Dashboard Filters</div>
+                <div className="platform-v2-reporting-toolbar-fields">
+                  <span className="platform-v2-reporting-field">From date</span>
+                  <span className="platform-v2-reporting-field">To date</span>
+                  <span className="platform-v2-reporting-toggle">Group by week</span>
+                  <span className="platform-v2-reporting-toggle">Group by month</span>
+                  <span className="platform-v2-reporting-button">Filter</span>
+                </div>
+              </div>
+
+              <div className="platform-v2-reporting-scroll">
+                <div className="platform-v2-reporting-layout">
+                  <div className="platform-v2-reporting-main">
+                    <article className="platform-v2-reporting-card is-overview">
+                      <div className="platform-v2-reporting-card-head">
+                        <strong>Top Clients</strong>
+                        <div className="platform-v2-reporting-inline-legend">
+                          <span className="is-blue">Recovered</span>
+                          <span className="is-green">Plans kept</span>
+                          <span className="is-purple">Broken plans</span>
+                        </div>
+                      </div>
+                      <div className="platform-v2-reporting-mini-chart">
+                        <PlatformReportingTrendChart />
+                      </div>
+                    </article>
+
+                    <article className="platform-v2-reporting-card is-featured">
+                      <div className="platform-v2-reporting-card-head is-featured-head">
+                        <div>
+                          <strong>Payments on Arrangement</strong>
+                          <p>Monitor due, paid and unpaid commitments across client books.</p>
+                        </div>
+                        <span className="platform-v2-reporting-badge">Live reporting</span>
+                      </div>
+
+                      <div className="platform-v2-reporting-feature-grid">
+                        <div className="platform-v2-reporting-feature-chart">
+                          <PlatformReportingArrangementChart />
+                        </div>
+
+                        <div className="platform-v2-reporting-feature-side">
+                          <div className="platform-v2-reporting-feature-legend">
+                            <span className="is-due">Due</span>
+                            <span className="is-paid">Paid</span>
+                            <span className="is-unpaid">Unpaid</span>
+                          </div>
+
+                          <div className="platform-v2-reporting-stat-stack">
+                            {reportingStats.map((item) => (
+                              <article
+                                className={`platform-v2-reporting-stat-card${item.accent ? ` ${item.accent}` : ''}`}
+                                key={item.label}
+                              >
+                                <span>{item.label}</span>
+                                <strong>{item.value}</strong>
+                                <small>{item.meta}</small>
+                              </article>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article className="platform-v2-reporting-card is-alerts">
+                      <div className="platform-v2-reporting-card-head">
+                        <strong>System Alerts</strong>
+                      </div>
+                      <div className="platform-v2-reporting-alert-grid">
+                        {reportingAlerts.map((item) => (
+                          <div className="platform-v2-reporting-alert-pill" key={item.label}>
+                            <span>{item.label}</span>
+                            <b>{item.value}</b>
+                          </div>
+                        ))}
+                      </div>
+                    </article>
+                  </div>
+
+                  <aside className="platform-v2-reporting-sidebar">
+                    {reportingSidebarCards.map((card) => (
+                      <article
+                        className={`platform-v2-reporting-side-card${card.accent ? ` ${card.accent}` : ''}`}
+                        key={card.title}
+                      >
+                        <span>{card.title}</span>
+                        <strong>{card.value}</strong>
+                        <small>{card.meta}</small>
+                      </article>
+                    ))}
+
+                    <article className="platform-v2-reporting-side-card is-audit">
+                      <span>Recent audit activity</span>
+                      <div className="platform-v2-reporting-audit-list">
+                        {reportingAuditItems.map((item) => (
+                          <p key={item}>{item}</p>
+                        ))}
+                      </div>
+                    </article>
+                  </aside>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1135,6 +1558,32 @@ function PlatformWorkflowVisualV2() {
   );
 }
 
+function PlatformResponsiveVisual({
+  desktop,
+  mobileSrc,
+  mobileAlt,
+  mobileAspectRatio,
+  mobileShotClassName = '',
+  mobileCover = true,
+  mobileObjectPosition,
+}) {
+  return (
+    <>
+      <div className="platform-v2-desktop-visual">{desktop}</div>
+      <div className="platform-v2-mobile-visual">
+        <PlatformTiltMedia
+          src={mobileSrc}
+          alt={mobileAlt}
+          cover={mobileCover}
+          aspectRatio={mobileAspectRatio}
+          objectPosition={mobileObjectPosition}
+          shotClassName={mobileShotClassName}
+        />
+      </div>
+    </>
+  );
+}
+
 function PlatformStorySection({
   eyebrow,
   title,
@@ -1150,6 +1599,9 @@ function PlatformStorySection({
   shotClassName = '',
   storyClassName = '',
   visualType = '',
+  responsiveImageSrc = '',
+  responsiveImageAlt = '',
+  responsiveAspectRatio,
 }) {
   return (
     <section className={`section platform-v2-section${muted ? ' section-alt' : ''}`}>
@@ -1158,7 +1610,19 @@ function PlatformStorySection({
       >
         <div className="platform-v2-story-media">
           {visualType === 'workflow' ? (
-            <PlatformWorkflowVisualV2 />
+            <PlatformResponsiveVisual
+              desktop={<PlatformWorkflowVisualV2 />}
+              mobileSrc={responsiveImageSrc}
+              mobileAlt={responsiveImageAlt}
+              mobileAspectRatio={responsiveAspectRatio}
+            />
+          ) : visualType === 'reporting' ? (
+            <PlatformResponsiveVisual
+              desktop={<PlatformReportingVisual />}
+              mobileSrc={responsiveImageSrc}
+              mobileAlt={responsiveImageAlt}
+              mobileAspectRatio={responsiveAspectRatio}
+            />
           ) : (
             <PlatformTiltMedia
               src={imageSrc}
@@ -1222,7 +1686,12 @@ export default function PlatformPage() {
           </div>
 
           <div className="platform-v2-hero-visual">
-            <PlatformHeroVisual />
+            <PlatformResponsiveVisual
+              desktop={<PlatformHeroVisual />}
+              mobileSrc="/home-assets/difference.png"
+              mobileAlt="Lateral platform overview screenshot"
+              mobileAspectRatio="1552 / 958"
+            />
           </div>
         </div>
         <div className="platform-v2-rail">

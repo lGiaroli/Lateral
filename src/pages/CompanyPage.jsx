@@ -17,8 +17,10 @@ const advantageCards = [
   {
     title: 'Streamline Processes',
     copy: 'Innovative products help organisations streamline practices, reduce costs and environmental impact, avoid bad debt and improve cash flow.',
-    image: '/company-assets/workflow.png',
-    alt: 'Workflow diagram displayed on a desktop monitor',
+    image: '/company-assets/workflow-diagram-reference.png',
+    alt: 'Workflow diagram',
+    cardClassName: 'is-company-workflow-card',
+    imageClassName: 'company-workflow-image',
   },
   {
     title: 'First Class Support',
@@ -56,11 +58,16 @@ export default function CompanyPage() {
         <div className="container advantage-grid">
           {advantageCards.map((card, index) => (
             <article
-              className={`card advantage-card ${index % 2 === 1 ? 'is-reversed' : ''}`}
+              className={`card advantage-card ${index % 2 === 1 ? 'is-reversed' : ''}${card.cardClassName ? ` ${card.cardClassName}` : ''}`}
               key={card.title}
             >
               <div className="advantage-media">
-                <img src={card.image} alt={card.alt} loading="lazy" />
+                <img
+                  className={card.imageClassName ?? undefined}
+                  src={card.image}
+                  alt={card.alt}
+                  loading="lazy"
+                />
               </div>
               <div className="advantage-copy">
                 <p className="eyebrow">The Lateral Advantage</p>
