@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SectionHeading } from '../components/SiteLayout';
 import {
@@ -20,9 +20,14 @@ const showcaseHighlights = [
   'Secure cloud operations with permissions, traceability and remote access',
 ];
 
-function useAutoCarousel(speed = 0.055) {
+function useAutoCarousel(speed = 0.055, isPaused = false) {
   const viewportRef = useRef(null);
   const nudgeRef = useRef(() => {});
+  const pausedRef = useRef(isPaused);
+
+  useEffect(() => {
+    pausedRef.current = isPaused;
+  }, [isPaused]);
 
   useEffect(() => {
     const viewport = viewportRef.current;
@@ -84,7 +89,8 @@ function useAutoCarousel(speed = 0.055) {
       previousTime = time;
 
       if (loopWidth > 0) {
-        const currentVelocity = speed + velocityBoost;
+        const baseVelocity = pausedRef.current ? 0 : speed;
+        const currentVelocity = baseVelocity + velocityBoost;
 
         if (currentVelocity !== 0) {
           setWrappedScroll(viewport.scrollLeft + delta * currentVelocity);
@@ -138,10 +144,33 @@ function useAutoCarousel(speed = 0.055) {
 }
 
 function HomeSolutionsCarousel() {
-  const { viewportRef, nudge } = useAutoCarousel(0.055);
+  const [isPaused, setIsPaused] = useState(false);
+  const { viewportRef, nudge } = useAutoCarousel(0.055, isPaused);
+
+  const pauseCarousel = () => {
+    setIsPaused(true);
+  };
+
+  const resumeCarousel = () => {
+    setIsPaused(false);
+  };
+
+  const handleBlurCapture = (event) => {
+    if (event.currentTarget.contains(event.relatedTarget)) {
+      return;
+    }
+
+    resumeCarousel();
+  };
 
   return (
-    <div className="home-v2-marquee home-v2-solutions-carousel">
+    <div
+      className="home-v2-marquee home-v2-solutions-carousel"
+      onMouseEnter={pauseCarousel}
+      onMouseLeave={resumeCarousel}
+      onFocusCapture={pauseCarousel}
+      onBlurCapture={handleBlurCapture}
+    >
       <button
         className="home-v2-carousel-arrow home-v2-carousel-arrow-left"
         type="button"
