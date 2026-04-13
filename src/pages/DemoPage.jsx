@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { offices } from '../data/siteContentData';
 
 const initialForm = {
@@ -10,11 +10,28 @@ const initialForm = {
   website: '',
 };
 
+const focusableFieldOrder = ['name', 'company', 'email', 'team', 'message'];
+
 export default function DemoPage() {
   const [form, setForm] = useState(initialForm);
   const [status, setStatus] = useState('idle');
   const [feedback, setFeedback] = useState('');
   const [fieldErrors, setFieldErrors] = useState({});
+  const fieldRefs = useRef({});
+
+  useEffect(() => {
+    if (status !== 'error') {
+      return;
+    }
+
+    const firstInvalidField = focusableFieldOrder.find((fieldName) => fieldErrors[fieldName]);
+
+    if (!firstInvalidField) {
+      return;
+    }
+
+    fieldRefs.current[firstInvalidField]?.focus();
+  }, [fieldErrors, status]);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -99,24 +116,38 @@ export default function DemoPage() {
                 Name
                 <input
                   name="name"
+                  ref={(node) => {
+                    fieldRefs.current.name = node;
+                  }}
                   value={form.name}
                   onChange={handleChange}
+                  aria-describedby={fieldErrors.name ? 'demo-name-error' : undefined}
                   aria-invalid={fieldErrors.name ? 'true' : 'false'}
                   required
                 />
-                {fieldErrors.name ? <span className="form-status error">{fieldErrors.name}</span> : null}
+                {fieldErrors.name ? (
+                  <span className="form-status error" id="demo-name-error">
+                    {fieldErrors.name}
+                  </span>
+                ) : null}
               </label>
               <label>
                 Company
                 <input
                   name="company"
+                  ref={(node) => {
+                    fieldRefs.current.company = node;
+                  }}
                   value={form.company}
                   onChange={handleChange}
+                  aria-describedby={fieldErrors.company ? 'demo-company-error' : undefined}
                   aria-invalid={fieldErrors.company ? 'true' : 'false'}
                   required
                 />
                 {fieldErrors.company ? (
-                  <span className="form-status error">{fieldErrors.company}</span>
+                  <span className="form-status error" id="demo-company-error">
+                    {fieldErrors.company}
+                  </span>
                 ) : null}
               </label>
               <label>
@@ -124,34 +155,56 @@ export default function DemoPage() {
                 <input
                   name="email"
                   type="email"
+                  ref={(node) => {
+                    fieldRefs.current.email = node;
+                  }}
                   value={form.email}
                   onChange={handleChange}
+                  aria-describedby={fieldErrors.email ? 'demo-email-error' : undefined}
                   aria-invalid={fieldErrors.email ? 'true' : 'false'}
                   required
                 />
-                {fieldErrors.email ? <span className="form-status error">{fieldErrors.email}</span> : null}
+                {fieldErrors.email ? (
+                  <span className="form-status error" id="demo-email-error">
+                    {fieldErrors.email}
+                  </span>
+                ) : null}
               </label>
               <label>
                 Team
                 <input
                   name="team"
+                  ref={(node) => {
+                    fieldRefs.current.team = node;
+                  }}
                   value={form.team}
                   onChange={handleChange}
+                  aria-describedby={fieldErrors.team ? 'demo-team-error' : undefined}
                   aria-invalid={fieldErrors.team ? 'true' : 'false'}
                 />
-                {fieldErrors.team ? <span className="form-status error">{fieldErrors.team}</span> : null}
+                {fieldErrors.team ? (
+                  <span className="form-status error" id="demo-team-error">
+                    {fieldErrors.team}
+                  </span>
+                ) : null}
               </label>
               <label className="full-span">
                 What do you want to improve?
                 <textarea
                   name="message"
                   rows="5"
+                  ref={(node) => {
+                    fieldRefs.current.message = node;
+                  }}
                   value={form.message}
                   onChange={handleChange}
+                  aria-describedby={fieldErrors.message ? 'demo-message-error' : undefined}
                   aria-invalid={fieldErrors.message ? 'true' : 'false'}
                 />
                 {fieldErrors.message ? (
-                  <span className="form-status error">{fieldErrors.message}</span>
+                  <span className="form-status error" id="demo-message-error">
+                    {fieldErrors.message}
+                  </span>
                 ) : null}
               </label>
               <label className="full-span" style={{ display: 'none' }} aria-hidden="true">

@@ -1,6 +1,8 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { SectionHeading } from '../components/SiteLayout';
+import { ScrollReveal, SectionHeading } from '../components/SiteLayout';
 import { solutionDetailContent, solutions } from '../data/siteContentData';
+
+const getCascadeDelay = (index, itemsPerWave = 3) => (index % itemsPerWave) * 110;
 
 function SolutionExtraSection({ section }) {
   const sectionClassName = `section${section.alt ? ' section-alt' : ''}`;
@@ -16,20 +18,22 @@ function SolutionExtraSection({ section }) {
           />
 
           <div className="feature-grid">
-            {section.cards.map((card) => (
-              <article className="card feature-card solution-section-card" key={card.title}>
-                {card.image ? (
-                  <div className="solution-section-media">
-                    <img
-                      src={card.image}
-                      alt={card.imageAlt ?? card.title}
-                      loading="lazy"
-                    />
-                  </div>
-                ) : null}
-                <h3>{card.title}</h3>
-                <p>{card.description}</p>
-              </article>
+            {section.cards.map((card, index) => (
+              <ScrollReveal delay={getCascadeDelay(index)} key={card.title}>
+                <article className="card feature-card solution-section-card">
+                  {card.image ? (
+                    <div className="solution-section-media">
+                      <img
+                        src={card.image}
+                        alt={card.imageAlt ?? card.title}
+                        loading="lazy"
+                      />
+                    </div>
+                  ) : null}
+                  <h3>{card.title}</h3>
+                  <p>{card.description}</p>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -48,16 +52,18 @@ function SolutionExtraSection({ section }) {
           />
 
           <div className="feature-grid">
-            {section.columns.map((column) => (
-              <article className="card detail-card solution-workflow-card" key={column.title}>
-                <p className="eyebrow">{column.eyebrow}</p>
-                <h3>{column.title}</h3>
-                <ul className="check-list">
-                  {column.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </article>
+            {section.columns.map((column, index) => (
+              <ScrollReveal delay={getCascadeDelay(index)} key={column.title}>
+                <article className="card detail-card solution-workflow-card">
+                  <p className="eyebrow">{column.eyebrow}</p>
+                  <h3>{column.title}</h3>
+                  <ul className="check-list">
+                    {column.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -197,21 +203,23 @@ function CollectIqWorkspacePage() {
           <SectionHeading eyebrow="Service features" title="Service features" />
 
           <div className="collect-iq-workspace-feature-grid">
-            {collectIqWorkspaceFeatureCards.map((card) => (
-              <article className="card collect-iq-workspace-anatomy-card" key={card.title}>
-                <div className="collect-iq-workspace-shot">
-                  <img src={card.image} alt={card.imageAlt} loading="lazy" />
-                </div>
-                <h3>{card.title}</h3>
-                <p>{card.description}</p>
-                <div className="collect-iq-workspace-chip-row">
-                  {card.items.map((item) => (
-                    <span className="collect-iq-workspace-chip" key={item}>
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </article>
+            {collectIqWorkspaceFeatureCards.map((card, index) => (
+              <ScrollReveal delay={getCascadeDelay(index)} key={card.title}>
+                <article className="card collect-iq-workspace-anatomy-card">
+                  <div className="collect-iq-workspace-shot">
+                    <img src={card.image} alt={card.imageAlt} loading="lazy" />
+                  </div>
+                  <h3>{card.title}</h3>
+                  <p>{card.description}</p>
+                  <div className="collect-iq-workspace-chip-row">
+                    {card.items.map((item) => (
+                      <span className="collect-iq-workspace-chip" key={item}>
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -352,11 +360,13 @@ export default function SolutionDetailPage() {
             />
 
             <div className="solution-difference-grid">
-              {detailPage.differenceItems.map((item) => (
-                <article className="card detail-card solution-difference-card" key={item.title}>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </article>
+              {detailPage.differenceItems.map((item, index) => (
+                <ScrollReveal delay={getCascadeDelay(index)} key={item.title}>
+                  <article className="card detail-card solution-difference-card">
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </article>
+                </ScrollReveal>
               ))}
             </div>
           </div>

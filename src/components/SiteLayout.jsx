@@ -1,9 +1,11 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { footerLinks, navigation, offices, solutions } from '../data/siteContentData';
 
 const lateralLogo =
   'https://images.squarespace-cdn.com/content/v1/5b335a834eddec4c26512510/eeb352d0-06b5-4fce-9d00-c30a97fea93c/embossedlogowhite.png?format=1500w';
+
+const getCascadeDelay = (index, itemsPerWave = 3) => (index % itemsPerWave) * 110;
 
 function ScrollToTop() {
   const location = useLocation();
@@ -51,7 +53,7 @@ function Header() {
             Single View of Debt / Customer platform for collections, legal and government teams
           </p>
         </div>
-        <Link className="announcement-cta" to="/demo" tabIndex={isHomePage ? undefined : -1}>
+        <Link className="announcement-cta" to="/demo">
           Ask for a demo
         </Link>
       </div>
@@ -184,23 +186,83 @@ export function SectionHeading({ eyebrow, title, description }) {
   );
 }
 
+export function ScrollReveal({ children, delay = 0 }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const revealRef = useRef(null);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      setIsVisible(true);
+      return undefined;
+    }
+
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      setIsVisible(true);
+      return undefined;
+    }
+
+    const node = revealRef.current;
+
+    if (!node) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: '0px 0px -8% 0px',
+      },
+    );
+
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  return (
+    <div
+      className={`scroll-reveal${isVisible ? ' is-visible' : ''}`}
+      ref={revealRef}
+      style={{ '--reveal-delay': `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+}
+
 export function SolutionGrid() {
   return (
     <div className="solution-grid">
-      {solutions.map((solution) => (
-        <Link className="card solution-card" key={solution.slug} to={`/solutions/${solution.slug}`}>
-          <div className="solution-card-top">
-            <p className="eyebrow">Solution</p>
-            <span className="solution-card-badge">Cloud-based</span>
-          </div>
-          <h3>{solution.title}</h3>
-          <p className="solution-card-tagline">{solution.tagline}</p>
-          <p>{solution.summary}</p>
-          <div className="solution-card-footer">
-            <p className="solution-card-audience">{solution.audience}</p>
-            <span className="text-link">View solution</span>
-          </div>
-        </Link>
+      {solutions.map((solution, index) => (
+        <ScrollReveal delay={getCascadeDelay(index)} key={solution.slug}>
+          <Link className="card solution-card" to={`/solutions/${solution.slug}`}>
+            <div className="solution-card-top">
+              <p className="eyebrow">Solution</p>
+              <span className="solution-card-badge">Cloud-based</span>
+            </div>
+            <h3>{solution.title}</h3>
+            <p className="solution-card-tagline">{solution.tagline}</p>
+            <p>{solution.summary}</p>
+            <div className="solution-card-footer">
+              <p className="solution-card-audience">{solution.audience}</p>
+              <span className="text-link">View solution</span>
+            </div>
+          </Link>
+        </ScrollReveal>
       ))}
     </div>
   );
